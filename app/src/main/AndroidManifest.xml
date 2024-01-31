@@ -2,41 +2,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.sampleioslaucher">
-
-
-
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
+        android:name="com.example.App"
         android:allowBackup="false"
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:fullBackupOnly="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:largeHeap="true"
-        android:process=":ios_launcher"
+        android:largeHeap="false"
+        android:launchMode="singleTask"
         android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="false"
         android:restoreAnyVersion="true"
-        android:supportsRtl="true">
+        android:stateNotNeeded="true"
+        android:supportsRtl="true"
+        android:taskAffinity="">
 
         <activity
-            android:name="com.luutinhit.launcherios17.FakeLauncher"
+            android:name="com.example.launcherios17.LauncherActivity"
             android:clearTaskOnLaunch="true"
-            android:enabled="true"
             android:exported="true"
-            android:noHistory="true"
-            android:theme="@style/Theme">
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:taskAffinity=""
+            android:theme="@style/Theme"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.MONKEY"/>
-                <category android:name="android.intent.category.LAUNCHER_APP"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.luutinhit.launcherios17.SplashActivity"
-            android:exported="true">
+            android:name="com.example.launcherios17.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

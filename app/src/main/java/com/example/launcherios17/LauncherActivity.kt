@@ -1,18 +1,27 @@
-package com.luutinhit.launcherios17;
+package com.example.launcherios17
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.annotation.SuppressLint
+import android.os.Bundle
+import com.base.BaseActivity
+import com.example.sampleioslaucher.R
+import com.example.sampleioslaucher.databinding.ActivityLaucherBinding
 
-import androidx.annotation.Nullable;
-
-import com.example.sampleioslaucher.R;
 
 /* loaded from: classes.dex */
-public class FakeLauncher extends Activity {
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+class LauncherActivity : BaseActivity<ActivityLaucherBinding>(ActivityLaucherBinding::inflate) {
 
-        setContentView(R.layout.splash_activity);
+    override fun addEvent() {
+
+    }
+
+    override fun initView() {
+        LoadAppHelper.getAllDeviceApps {
+            binding.rv.adapter = AppItemAdapter(this, ArrayList(it.take(24)))
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+
     }
 }

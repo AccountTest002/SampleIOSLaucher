@@ -1,34 +1,26 @@
-package com.luutinhit.launcherios17;
+package com.example.launcherios17
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.Settings;
-
-import com.example.sampleioslaucher.R;
+import android.content.ComponentName
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Bundle
+import android.provider.Settings
+import com.base.BaseActivity
+import com.example.sampleioslaucher.databinding.SplashActivityBinding
 
 
 /* loaded from: classes.dex */
-public class SplashActivity extends Activity {
+class SplashActivity : BaseActivity<SplashActivityBinding>(SplashActivityBinding::inflate) {
 
+    override fun addEvent() {
+        binding.btnSetDefault.setOnClickListener {
+            val selector = Intent(Settings.ACTION_HOME_SETTINGS)
+            selector.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(selector)
+        }
+    }
 
-    @SuppressLint("MissingInflatedId")
-    @Override
-    public final void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.splash_activity);
+    override fun initView() {
 
-
-        findViewById(R.id.btn_set_default).setOnClickListener(v -> {
-            Intent selector = new Intent(Settings.ACTION_HOME_SETTINGS);
-            selector.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(selector);
-        });
     }
 }
