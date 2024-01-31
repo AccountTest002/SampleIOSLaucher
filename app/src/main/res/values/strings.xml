@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SampleIOSLaucher</string>
+    <string name="pick_wallpaper">pick wallpaper</string>
+    <string name="weather">weather</string>
+    <string name="battery">battery</string>
+    <string name="picture">picture</string>
+    <string name="wallpaper_button_text">wallpaper button text</string>
+</resources>
