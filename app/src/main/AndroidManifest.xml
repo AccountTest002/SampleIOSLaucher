@@ -22,15 +22,16 @@
         <activity
             android:name="com.luutinhit.launcherios17.FakeLauncher"
             android:clearTaskOnLaunch="true"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true"
             android:noHistory="true"
             android:theme="@style/Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY"/>
+                <category android:name="android.intent.category.LAUNCHER_APP"/>
             </intent-filter>
         </activity>
         <activity
